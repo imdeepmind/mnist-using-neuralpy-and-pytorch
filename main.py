@@ -40,17 +40,14 @@ print("Size of Validation data is ", len(X_validation))
 print("Size of Test data is ", len(X_test))
 
 # Making the model
-
-
-
-
-
-
-
-
+# Initializing the PyTorch model
 p_model = MNISTModel()
 
+# Initializing a NeuralPy model
 model = Model()
+
+# Converting the PyTorch model to NeuralPy model
 model.set_model(p_model)
 
+# Printing the summary of the model
 print(model.summary())
