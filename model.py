@@ -27,5 +27,8 @@ class Net(nn.Module):
         x = F.relu(x)
         x = self.dropout2(x)
         x = self.fc2(x)
-        output = F.log_softmax(x, dim=1)
-        return output
+
+        # NeuralPy loss function CrossEntropy automatically adds a
+        # log softmax layer at the end of the model, so there is no need of it
+        # output = F.log_softmax(x, dim=1)
+        return x

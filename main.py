@@ -1,4 +1,6 @@
 from neuralpy.models import Model
+from neuralpy.loss_functions import CrossEntropyLoss
+from neuralpy.optimizer import Adam
 
 import pandas as pd
 
@@ -51,3 +53,6 @@ model.set_model(p_model)
 
 # Printing the summary of the model
 print(model.summary())
+
+# Compiling the model
+model.compile(optimizer=Adam(), loss_function=CrossEntropyLoss(), metrics=["accuracy"])
