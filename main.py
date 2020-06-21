@@ -64,7 +64,7 @@ model.compile(optimizer=Adam(), loss_function=CrossEntropyLoss(), metrics=["accu
 # Using the fit method
 history = model.fit(train_data=(X_train, y_train), test_data=(X_validation, y_validation), epochs=10, batch_size=32)
 
-# Evaluatung the model
+# Evaluating the model
 ev = model.evaluate(X=X_test, y=y_test, batch_size=32)
 
 print(f"Loss: {ev['loss']} and accuracy: {ev['accuracy']}%")
