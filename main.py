@@ -56,3 +56,7 @@ print(model.summary())
 
 # Compiling the model
 model.compile(optimizer=Adam(), loss_function=CrossEntropyLoss(), metrics=["accuracy"])
+
+# Training the model
+# Using the fit method
+history = model.fit(train_data=(X_train, y_train), test_data=(X_validation, y_validation), epochs=1, batch_size=32)
