@@ -27,6 +27,9 @@ y = train_data[:, 0]
 X_test = test_data[:, 1:]
 y_test = test_data[:, 0]
 
+X = X.reshape(len(X), 1, 28, 28)
+X_test = X_test.reshape(len(X_test), 1, 28, 28)
+
 del train_data
 
 train_data_size = .8
@@ -59,4 +62,9 @@ model.compile(optimizer=Adam(), loss_function=CrossEntropyLoss(), metrics=["accu
 
 # Training the model
 # Using the fit method
-history = model.fit(train_data=(X_train, y_train), test_data=(X_validation, y_validation), epochs=1, batch_size=32)
+history = model.fit(train_data=(X_train, y_train), test_data=(X_validation, y_validation), epochs=10, batch_size=32)
+
+# Evaluatung the model
+ev = model.evaluate(X=X_test, y=y_test, batch_size=32)
+
+print(f"Loss: {ev['loss']} and accuracy: {ev['accuracy']}%")
